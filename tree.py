@@ -93,28 +93,161 @@
 # print(remove_leading_zeros([0, 0, 1, 2, 0, 3, 0]))  # Output: [1, 2, 3]
 
 # Find the first missing positive integer:
-def first_missing_positive(nums):
-    smallest = 1
+# def first_missing_positive(nums):
+#     smallest = 1
 
-    while smallest in nums:
-        smallest += 1
+#     while smallest in nums:
+#         smallest += 1
 
-    return smallest
-
-
-arr = [3, 4, -1, 1]
-print(first_missing_positive(arr))
-
-# find the smallest missing positive integer in a list of unsorted integers
-
-def smallest_missing_positive(arr):
-    num = 1
-
-    while num in arr:
-        num += 1
-
-    return num
+#     return smallest
 
 
-arr = [7,8,9,11,12]
-print(smallest_missing_positive(arr))
+# arr = [3, 4, -1, 1]
+# print(first_missing_positive(arr))
+
+# # find the smallest missing positive integer in a list of unsorted integers
+
+# def smallest_missing_positive(arr):
+#     num = 1
+
+#     while num in arr:
+#         num += 1
+
+#     return num
+
+
+# arr = [7,8,9,11,12]
+# print(smallest_missing_positive(arr))
+
+# class BSTNode:
+#     def __init__(self, data):
+#         self.data = data
+#         self.leftChild = None
+#         self.rightChild = None
+
+
+# # Insert node in BST
+# def insertNode(rootNode, nodeValue):
+#     if rootNode.data is None:
+#         rootNode.data = nodeValue
+
+#     elif nodeValue <= rootNode.data:
+#         if rootNode.leftChild is None:
+#             rootNode.leftChild = BSTNode(nodeValue)
+#         else:
+#             insertNode(rootNode.leftChild, nodeValue)
+
+#     else:
+#         if rootNode.rightChild is None:
+#             rootNode.rightChild = BSTNode(nodeValue)
+#         else:
+#             insertNode(rootNode.rightChild, nodeValue)
+
+#     return "The node has been inserted successfully"
+
+
+# # Search node in BST
+# def searchNode(rootNode, nodeValue):
+#     if rootNode is None:
+#         print("The value is not found")
+#         return
+
+#     if rootNode.data == nodeValue:
+#         print("The value is found")
+
+#     elif nodeValue < rootNode.data:
+#         if rootNode.leftChild is None:
+#             print("The value is not found")
+#         else:
+#             searchNode(rootNode.leftChild, nodeValue)
+
+#     else:
+#         if rootNode.rightChild is None:
+#             print("The value is not found")
+#         else:
+#             searchNode(rootNode.rightChild, nodeValue)
+
+
+# # Preorder Traversal: Root -> Left -> Right
+# def preOrderTraversal(rootNode):
+#     if rootNode is None:
+#         return
+
+#     print(rootNode.data, end=" ")
+#     preOrderTraversal(rootNode.leftChild)
+#     preOrderTraversal(rootNode.rightChild)
+
+
+# # Inorder Traversal: Left -> Root -> Right
+# def inOrderTraversal(rootNode):
+#     if rootNode is None:
+#         return
+
+#     inOrderTraversal(rootNode.leftChild)
+#     print(rootNode.data, end=" ")
+#     inOrderTraversal(rootNode.rightChild)
+
+
+# # Postorder Traversal: Left -> Right -> Root
+# def postOrderTraversal(rootNode):
+#     if rootNode is None:
+#         return
+
+#     postOrderTraversal(rootNode.leftChild)
+#     postOrderTraversal(rootNode.rightChild)
+#     print(rootNode.data, end=" ")
+
+
+# # Create root node
+# rootNode = BSTNode(70)
+
+# # Insert nodes according to your tree image
+# insertNode(rootNode, 50)
+# insertNode(rootNode, 90)
+# insertNode(rootNode, 30)
+# insertNode(rootNode, 60)
+# insertNode(rootNode, 80)
+# insertNode(rootNode, 100)
+# insertNode(rootNode, 20)
+# insertNode(rootNode, 40)
+# insertNode(rootNode, 10)
+
+
+# print("Inorder Traversal:")
+# inOrderTraversal(rootNode)
+
+# print("\nPreorder Traversal:")
+# preOrderTraversal(rootNode)
+
+# print("\nPostorder Traversal:")
+# postOrderTraversal(rootNode)
+
+
+# print("\n\nSearch Result:")
+# searchNode(rootNode, 40)
+
+# a =int(input("enter First Number:"))
+# b =int(input("enter Second Number:"))
+# try:
+#     result = a / b
+#     print("Result:", result)
+# except ZeroDivisionError:
+#     print("Error: Division by zero is not allowed.")
+#     except ValueError:
+#     print("Error: Invalid input. Please enter numeric values.")
+
+import logging
+
+logging.basicConfig(filename="newfile.txt", level=logging.DEBUG)
+
+try:
+    a = int(input("enter first integer no"))
+    b = int(input("enter second integer no"))
+    print(a / b)
+
+except (ZeroDivisionError, ValueError) as message:
+    print(message)
+    logging.exception(message)
+
+print("Logging Level is set up. Check 'newfile.txt' for log details.")
+
