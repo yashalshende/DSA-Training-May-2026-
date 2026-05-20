@@ -236,18 +236,98 @@
 #     except ValueError:
 #     print("Error: Invalid input. Please enter numeric values.")
 
-import logging
+# import logging
 
-logging.basicConfig(filename="newfile.txt", level=logging.DEBUG)
+# logging.basicConfig(filename="newfile.txt", level=logging.DEBUG)
 
-try:
-    a = int(input("enter first integer no"))
-    b = int(input("enter second integer no"))
-    print(a / b)
+# try:
+#     a = int(input("enter first integer no"))
+#     b = int(input("enter second integer no"))
+#     print(a / b)
 
-except (ZeroDivisionError, ValueError) as message:
-    print(message)
-    logging.exception(message)
+# except (ZeroDivisionError, ValueError) as message:
+#     print(message)
+#     logging.exception(message)
 
-print("Logging Level is set up. Check 'newfile.txt' for log details.")
+# print("Logging Level is set up. Check 'newfile.txt' for log details.")
 
+# import csv
+
+# # Open employee.csv file in append mode
+# f = open("employee.csv", "a", newline="")
+
+# # Create csv writer object
+# a = csv.writer(f)
+
+# # Uncomment this line only one time to add headings
+# # a.writerow(["EmpID", "Emp Name", "Emp Age"])
+
+# # Taking employee details from user
+# empid = int(input("Enter your EmpID: "))
+# empName = input("Enter employee name: ")
+# age = int(input("Enter employee age: "))
+
+# # Writing data into CSV file
+# a.writerow([empid, empName, age])
+
+# # Closing the file
+# f.close()
+
+# print("File has been created and data inserted successfully.")
+
+import csv
+
+# Open CSV file in append mode
+f = open("student.csv", "a", newline="")
+
+# Create CSV writer object
+writer = csv.writer(f)
+
+# Column names
+writer.writerow([
+    "studId",
+    "studName",
+    "phy",
+    "Chem",
+    "math",
+    "Total",
+    "Percentage",
+    "Result"
+])
+
+# Taking input from user
+studId = int(input("Enter Student ID: "))
+studName = input("Enter Student Name: ")
+
+phy = int(input("Enter Physics Marks: "))
+chem = int(input("Enter Chemistry Marks: "))
+math = int(input("Enter Math Marks: "))
+
+# Calculate total
+total = phy + chem + math
+
+# Calculate percentage
+percentage = total / 3
+
+# Check pass or fail condition
+if phy >= 40 and chem >= 40 and math >= 40:
+    result = "Pass"
+else:
+    result = "Fail"
+
+# Write student data into CSV file
+writer.writerow([
+    studId,
+    studName,
+    phy,
+    chem,
+    math,
+    total,
+    percentage,
+    result
+])
+
+# Close the file
+f.close()
+
+print("Student record has been created successfully.")
